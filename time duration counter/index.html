@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        height: 95vh;
+        
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
+   
+    .a{
+        border: 5px solid rgb(230, 147, 22);   
+        margin: 10px;
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 15%;
+    }
+    .a:hover{
+        background-color: rgb(255, 166, 0);
+        color: white;
+        font-size: 25px;
+        transition: 1s 
+
+    }
+    body{
+        background-image: url(https://imgeng.jagran.com/images/2023/jun/Eid-Al-Adha-mubarak1687999781071.jpg) ;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .year{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        letter-spacing: 15px;
+        color:rgba(143, 100, 21, 0.726);
+        background-color: rgb(224, 213, 204);
+        border-radius: 15px;
+        position: absolute;
+        left: 36%;
+        top: 28%;
+    }
+
+    rgb(224, 177, 130);
+
+
+</style>
+<body>
+    <div class="year">MUBARAK 2024</div>
+    <div class="container">
+        <div class="a" id="day"></div>
+        <div class="a" id="hour"></div>
+        <div class="a" id="min"></div>
+        <div class="a" id="sec"></div>
+        <!-- <div class="a" id="mssec"></div> -->
+    </div>
+    
+
+
+
+
+    <script>
+        let day = document.getElementById("day")
+        let hour = document.getElementById("hour")
+        let minutes = document.getElementById("min")
+        let second = document.getElementById("sec")
+        // let mssecond =  document.getElementById("mssec")
+
+        let date = new Date()
+        let baqraEid = new Date("6/17/2024")
+
+        let datetime = date.getTime()
+        let difference = baqraEid.getTime()- datetime
+        
+
+        // let datetime = date.getTime()
+        // let difference = baqraEid.getTime()- datetime
+        // day.innerHTML = Math.floor(difference / 1000 / 60 / 60 / 24)  
+        // hour.innerHTML = Math.floor(difference / 1000 / 60 / 60 )  
+        // minutes.innerHTML = Math.floor(difference / 1000 / 60 )  
+        // second.innerHTML = Math.floor(difference / 1000   )  
+       let intervel = setInterval(function (){
+        difference = difference - 1000;
+        let currenttime = new Date();
+        day.innerHTML = Math.floor(difference / 1000 / 60 / 60 / 24)  
+        hour.innerHTML = Math.floor(24 - currenttime.getHours() )  
+        minutes.innerHTML = Math.floor(60 - currenttime.getMinutes() )  
+        second.innerHTML = Math.floor(60 - currenttime.getSeconds()   ) 
+        // mssecond.innerHTML = Math.floor(difference)
+        },1000)
+      
+
+
+
+    </script>
+    
+</body>
+</html>
